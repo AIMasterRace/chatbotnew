@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY= config('SECRET_KEY')
 DEBUG= config('DEBUG', cast=bool)
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['newchatbot-0c05846ee72d.herokuapp.com', '127.0.0.1']
 
 
 # Application definition

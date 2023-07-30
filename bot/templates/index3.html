@@ -1,4 +1,5 @@
 {% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="{% static 'style1.css' %}">
 <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -17,8 +18,8 @@
     </h1>
     <div class="content">
         <p><em style="font-size:110%;">CareerIQ is a website that can utilize ChatGPT’s functions to become an assistant
-                who can do a questionnaire, including hobbies, interests, the subjects that students good at,
-                personalities, and their ambitions. </em></p>
+                who can do a questionnaire, including hobbies, interests, the subjects that students are good at,
+                their personalities, and their ambitions. </em></p>
     </div>
 
     <p>
@@ -28,9 +29,8 @@
             <div class="input-group">
 
                 <textarea type="text" class="form-control" placeholder="Ask anything!" name="message" id="message"
-                    value="I want you to act as a Career Counselor for graduating Vietnamese high school and university students. Design a set of four questions that you can ask them to analyze their skills, interests, and goals, in order to recommend the most suitable career paths for them."
-                    autocomplete="off"></textarea>
-                <button class="btn btn-primary" type="submit">Send</button>
+                    autocomplete="off">I want you to act as a Career Counselor for graduating Vietnamese high school and university students. Design a set of four questions that you can ask them to analyze their skills, interests, and goals, in order to recommend the most suitable career paths for them.</textarea>
+                <button class="button" type="submit" id="submit">Send</button>
             </div>
         </div>
     </form>
@@ -38,6 +38,19 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/showdown@<version tag>/dist/showdown.min.js"></script>
     <script>
+        function removeClass() {
+            myButton.className = myButton.className.replace(new RegExp('(?:^|\\s)loading(?!\\S)'), '');
+        }
+
+        var myButton = document.getElementById('submit');
+
+
+        $(document).on("ajaxSend", function () {
+           myButton.className=myButton.className+' loading';
+        });
+        $(document).on("ajaxComplete", function () {
+           removeClass();
+        });
         $(document).ready(function () {
             $('#chat-form').submit(function (event) {
                 event.preventDefault();

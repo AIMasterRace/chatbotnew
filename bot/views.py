@@ -17,4 +17,4 @@ def chat(request):
         return JsonResponse({'bot_response': str(markdown.markdown(str(bot_response)))})
 
 def index(request):
-    return HttpResponse(render(request, 'index4.html'))
+    return HttpResponse(render(request, 'index3.html'))

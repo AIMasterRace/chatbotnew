@@ -5,7 +5,7 @@ import markdown
 from django.http import JsonResponse, HttpResponse
 from bardapi import Bard
 
-token = 'ZAgXXuGFh4-pARuj0XWe36RkTUppCJa5PsW05a3VI3RdtGU9hmTBeJQutRATaDSmiFc4Og.'
+token = 'ZggXXvqoix3stwHhagvpYMyc_GFDA34VfxIDyzIHMR3ZZqbuK8Nwaz8xLcpyzj0ty7iEXw.'
 bard = Bard(token=token)
 maxs=4
 def chat(request):
